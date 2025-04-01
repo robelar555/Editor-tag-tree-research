@@ -2,7 +2,7 @@
 Vercel community
 ----------------
 
-Se https://v0.dev/chat/community/new-project-km7HKdfqL6s community, for VERCEL generert editor, generert utifra tekst i denne Readme.md fil
+Se https://v0.dev/chat/community/new-project-km7HKdfqL6s community for VERCEL generert editor, generert med teksten i denne Readme.md fil
 
 
 
