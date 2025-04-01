@@ -24,9 +24,9 @@ Main idea: keep track of what is left of interval, while adding parts of interva
 
 1. Because the whole interval in "interval" is to be covered, start position must be found through DFS.
 2. A start position is found when one of following is true:
-  2.1. Found the smallest interval containing start position
-  2.2 Found node of same tag - this is needed to avoid having sub child of same tag.
-  2.3 
+  - 2.1. Found the smallest interval containing start position
+  - 2.2 Found node of same tag - this is needed to avoid having sub child of same tag.
+  - 2.3 
 
 
 Remove tag (input : [tag, interval : [start,stop]]):
