@@ -40,3 +40,8 @@ Main idea: keep track of what is left of interval, while trying to check if any 
     - If remove-interval is inside a tag, start and stop position is simple changed; this is followed with termination of DFS
     - If any sub-child gets part that is outside parent interval, it should be connected to its parent (from sub-child point of view: parent of parent) with non-overlaping interval
     - If a node gets an empty interval, it should get deleted.
+
+Justification of non-overlapping property after removing a tag against a interval:
+
+   Because interval of all childs is inside parent interval (inside property), and because all child have non-overlapping intervals (non-overallping properties), both non-overlapping intervals is uphold when being added
+   to its parent of parent.
