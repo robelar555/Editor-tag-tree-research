@@ -44,5 +44,5 @@ Main idea: keep track of what is left of interval, while trying to check if any 
 Justification of non-overlapping property after removing a tag against a interval:
 ------------
 
-   Because interval of all childs is inside parent interval (inside property), and because all child have non-overlapping intervals (non-overallping properties), both non-overlapping intervals is uphold when being added
+   Because interval of all childs is inside parent interval (inside property), and because all child have non-overlapping intervals (non-overlaping properties), both non-overlapping intervals is uphold when being added
    to its parent of parent.
