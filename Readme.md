@@ -33,7 +33,7 @@ Remove tag (input : [tag, interval : [start,stop]]):
 --------------
 
 
-Main idea: keep track of what is left of interval, while trying to check if any sub-child has some part of interval 
+Main idea: keep track of what is left of interval, while "re-hooking" sub-childs to  parent of parent.
 
 1. One must use DFS to find tag containing smallest interval with start position.
 2. There may be different cases, concerning interval:
