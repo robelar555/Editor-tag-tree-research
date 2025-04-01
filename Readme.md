@@ -38,4 +38,5 @@ Main idea: keep track of what is left of interval, while trying to check if any 
 1. One must use DFS to find tag containing smallest interval with start position.
 2. There may be different cases, concerning interval:
     - If remove-interval is inside a tag, start and stop position is simple changed; this is followed with termination of DFS
-    -
+    - If any sub-child gets part that is outside parent interval, it should be connected to its parent (from sub-child point of view: parent of parent) with non-overlaping interval
+    - If a node gets an empty interval, it should get deleted.
