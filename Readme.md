@@ -1,7 +1,7 @@
 Problem statement:
 ------------------
 
-Given a text, how to add tags and remove tags with typescript NODE semantic structure using interval tree.
+Given a text, how to add tags (like <u>, <b> and <i>) and remove tags with typescript NODE semantic structure using interval tree.
 
 Tree properties:
 -----------
