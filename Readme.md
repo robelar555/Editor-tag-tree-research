@@ -22,8 +22,8 @@ Add tag (input: [tag , interval : [start,stop]]):
 Main idea: keep track of what is left of interval, while adding parts of interval along with a tag at 
            appropriate places.
 
-1. Because the whole interval in "interval" is to be covered, start position must be found through DFS.
-2. A start position is found when one of following is true:
+- 1. Because the whole interval in "interval" is to be covered, start position must be found through DFS.
+- 2. A start position is found when one of following is true:
   - 2.1. Found the smallest interval containing start position
   - 2.2 Found node of same tag - this is needed to avoid having sub child of same tag.
   - 2.3 
@@ -35,7 +35,7 @@ Remove tag (input : [tag, interval : [start,stop]]):
 
 Main idea: keep track of what is left of interval, while trying to check if any sub-child has some part of interval 
 
-1. One must use DFS to find tag containing smallest interval with start position.
-2. There may be different cases, concerning interval:
+- 1. One must use DFS to find tag containing smallest interval with start position.
+- 2. There may be different cases, concerning interval:
     - 2.1 If remove-interval is inside a tag, start and stop position is simple changed; this is followed with termination of DFS
      -2.2 
