@@ -1,3 +1,8 @@
+Se https://v0.dev/chat/community/new-project-km7HKdfqL6s community, for VERCEL generert editor - bassert på teksten nedenfor:
+
+
+"""
+
 Problem statement:
 ------------------
 
@@ -48,3 +53,7 @@ Justification of non-overlapping property after removing a tag against a interva
 
    Because interval of all childs is inside parent interval (inside property), and because all child have non-overlapping intervals (non-overlaping properties),  non-overlapping intervals is uphold when being added
    to its parent of parent.
+
+
+
+"""
