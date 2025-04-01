@@ -49,7 +49,9 @@ Main idea: keep track of what is left of interval, while "re-hooking" sub-childs
     - If remove-interval is inside a tag, start and stop position is simple changed; this is followed with termination of DFS
     - If any sub-child gets part that is outside parent interval, it should be connected to its parent (from sub-child point of view: parent of parent) with non-overlaping interval
     - If a node gets an empty interval, it should get deleted.
-3. In case one did not remove all tags, because tag is located in different intervals, remove operation is repeated with a new - updated - start position
+3. In case one did not remove all tags, because tag is located in different intervals, remove operation is repeated with a new - updated - start position:
+   - If one remove interval inside tag interval, one need to rehook those - 2 tags correspodning to edge-intervals.
+   - If remove interval is a edge-interval, sub-nodes inside this edge-interval is rehooked to its parent parent.
 
 Justification of non-overlapping property after removing a tag against a interval:
 ------------
