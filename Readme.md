@@ -34,7 +34,7 @@ Main idea: keep track of what is left of interval, while adding parts of interva
 2. A start position is found when one of following is true:
     - Found the smallest interval containing start position
     - Found node of same tag - this is needed to avoid having sub child of same tag.
-3. Add tag operation is repeated with a new - updated - start position.
+3. Add tag operation is continued - through continuation of dfs - with a new - updated - start position.
 
 
 
@@ -46,12 +46,32 @@ Main idea: keep track of what is left of interval, while "re-hooking" sub-childs
 
 1. One must use DFS to find tag containing smallest interval with start position.
 2. There may be different cases, concerning interval:
-    - If remove-interval is inside a tag, start and stop position is simple changed; this is followed with termination of DFS
-    - If any sub-child gets part that is outside parent interval, it should be connected to its parent (from sub-child point of view: parent of parent) with non-overlaping interval
-    - If a node gets an empty interval, it should get deleted.
-3. In case one did not remove all tags, because tag is located in different intervals, remove operation is repeated with a new - updated - start position:
-   - If one remove interval inside tag interval, one need to rehook those - 2 tags correspodning to edge-intervals.
-   - If remove interval is a edge-interval, sub-nodes inside this edge-interval is rehooked to its parent parent.
+    - If remove-interval is inside a tag (not touching start and end position):
+         - Use a loop to find node that is inside remove-interval, and store them remember them temporarily in node affected by remove-interval
+         - Use a loop to find node that is before remove-interval,  and store them remember them temporarily in node affected by remove-interval
+         - Use a loop to find node that is after remove-interval,  and store them remember them temporarily in node affected by remove-interval
+         - Make a node corresponding to before-interval with same tag as this tag-node (pre-tag node); add these to list of rehook-node-list (List rehook-node-list )
+         - Make a node corresponding to after-interval with same tag as this tag-node  (post-tag node); add these to list of rehook-node-list (List rehook-node-list )
+         - Add child corresponding to before-interval, to new tag-node corresponding to pre-tag node; add these to list of rehook-node-list (List rehook-node-list )
+         - Add child corresponding to after-interval, to new tag-node corresponding to post-tag node; add these to list of rehook-node-list (List rehook-node-list )
+         - Make sure rehook-node-list  is in sorted order
+         - Make sure rehook-node-list -node-list  is merged, when possible
+         - Return rehook-node-list, along with a state REMOVE-INTERVAL-INSIDE and remaining interval (that is now empty, resulting in a termination of dfs)
+         - Because parrent detects state REMOVE-INTERVAL-INSIDE, it removes this tag-node and add nodes in returned rehook-node-list
+    - If remove-interval is at start of tag interval:
+         - Use a loop to find node that is after remove-interval; add these to list of rehook-node-list (List rehook-node-list )
+         - Make sure rehook-node-list  is in sorted order
+         - Make sure rehook-node-list -node-list  is merged, when possible
+         - Return rehook-node-list, along with a state REMOVE-INTERVAL-LEFT and remaining interval
+         - Because parrent detects state REMOVE-INTERVAL-LEFT, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
+    - If remove-intrval is at end of tag interval:
+             - Use a loop to find node that is before remove-interval,  and store them remember them temporarily in node affected by remove-interval
+             - Make sure intervals is in sorted order
+             - Make sure intervals is merged, when possible
+             - Make sure rehook-node-list -node-list  is merged, when possible
+             - Return rehook-node-list, along with a state REMOVE-INTERVAL-RIGHT and remaining interval
+            - Because parrent detects state REMOVE-INTERVAL-right, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
+
 
 Justification of non-overlapping property after removing a tag against a interval:
 ------------
