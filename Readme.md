@@ -70,7 +70,7 @@ Main idea: keep track of what is left of interval, while "re-hooking" sub-childs
          - Make sure intervals is merged, when possible
          - Make sure rehook-node-list -node-list  is merged, when possible
          - Return rehook-node-list, along with a state REMOVE-INTERVAL-RIGHT and remaining interval
-         - Because parrent detects state REMOVE-INTERVAL-right, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
+         - Because parrent detects state REMOVE-INTERVAL-RIGHT, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
 
 
 Justification of non-overlapping property after removing a tag against a interval:
