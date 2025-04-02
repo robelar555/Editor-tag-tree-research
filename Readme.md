@@ -48,12 +48,12 @@ Main idea: keep track of what is left of interval, while "re-hooking" sub-childs
 2. There may be different cases, concerning interval:
     - If remove-interval is inside a tag (not touching start and end position):
          - Use a loop to find node that is inside remove-interval; add these to list of rehook-node-list (List rehook-node-list )
-         - Use a loop to find node that is before remove-interval; add these to list of rehook-node-list (List rehook-node-list )
-         - Use a loop to find node that is after remove-interval; add these to list of rehook-node-list (List rehook-node-list )
+         - Use a loop to find node that is before remove-interval; remember them temporarily in a before-remove-interval-list 
+         - Use a loop to find node that is after remove-interval;  remember them temporarily in a after-remove-interval-list 
          - Make a node corresponding to before-interval with same tag as this tag-node (pre-tag node); add these to list of rehook-node-list (List rehook-node-list )
          - Make a node corresponding to after-interval with same tag as this tag-node  (post-tag node); add these to list of rehook-node-list (List rehook-node-list )
-         - Add child corresponding to before-interval, to new tag-node corresponding to pre-tag node; add these to list of rehook-node-list (List rehook-node-list )
-         - Add child corresponding to after-interval, to new tag-node corresponding to post-tag node; add these to list of rehook-node-list (List rehook-node-list )
+         - Add child corresponding to before-interval (before-remove-interval-list ), to new tag-node corresponding to pre-tag node; add these to list of rehook-node-list (List rehook-node-list )
+         - Add child corresponding to after-interval (after-remove-interval-list ), to new tag-node corresponding to post-tag node; add these to list of rehook-node-list (List rehook-node-list )
          - Make sure rehook-node-list  is in sorted order
          - Make sure rehook-node-list -node-list  is merged, when possible
          - Return rehook-node-list, along with a state REMOVE-INTERVAL-INSIDE and remaining interval (that is now empty, resulting in a termination of dfs)
