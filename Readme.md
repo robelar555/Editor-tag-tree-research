@@ -65,12 +65,12 @@ Main idea: keep track of what is left of interval, while "re-hooking" sub-childs
          - Return rehook-node-list, along with a state REMOVE-INTERVAL-LEFT and remaining interval
          - Because parrent detects state REMOVE-INTERVAL-LEFT, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
     - If remove-intrval is at end of tag interval:
-             - Use a loop to find node that is before remove-interval,  and store them remember them temporarily in node affected by remove-interval
-             - Make sure intervals is in sorted order
-             - Make sure intervals is merged, when possible
-             - Make sure rehook-node-list -node-list  is merged, when possible
-             - Return rehook-node-list, along with a state REMOVE-INTERVAL-RIGHT and remaining interval
-            - Because parrent detects state REMOVE-INTERVAL-right, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
+         - Use a loop to find node that is before remove-interval,  and store them remember them temporarily in node affected by remove-interval
+         - Make sure intervals is in sorted order
+         - Make sure intervals is merged, when possible
+         - Make sure rehook-node-list -node-list  is merged, when possible
+         - Return rehook-node-list, along with a state REMOVE-INTERVAL-RIGHT and remaining interval
+         - Because parrent detects state REMOVE-INTERVAL-right, it add nodes in returned rehook-node-list and continue dfs with remaining interval.
 
 
 Justification of non-overlapping property after removing a tag against a interval:
